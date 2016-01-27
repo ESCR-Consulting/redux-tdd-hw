@@ -7,6 +7,7 @@ function setup() {
   const actions = {
     increment: expect.createSpy(),
     incrementIfOdd: expect.createSpy(),
+    incrementIfPrime: expect.createSpy(),
     incrementAsync: expect.createSpy(),
     decrement: expect.createSpy()
   }
@@ -43,9 +44,15 @@ describe('Counter component', () => {
     expect(actions.incrementIfOdd).toHaveBeenCalled()
   })
 
-  it('fourth button should call incrementAsync', () => {
+  it('fourth button should call incrementIfPrime', () => {
     const { buttons, actions } = setup()
     TestUtils.Simulate.click(buttons[3])
+    expect(actions.incrementIfPrime).toHaveBeenCalled()
+  })
+
+  it('fifth button should call incrementAsync', () => {
+    const { buttons, actions } = setup()
+    TestUtils.Simulate.click(buttons[4])
     expect(actions.incrementAsync).toHaveBeenCalled()
   })
 })
