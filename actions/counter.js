@@ -3,13 +3,13 @@ export const DECREMENT_COUNTER = 'DECREMENT_COUNTER'
 
 export function increment() {
   return {
-    type: INCREMENT_COUNTER
+    type: POSITIVE_ONE
   }
 }
 
 export function decrement() {
   return {
-    type: DECREMENT_COUNTER
+    type: NEGATIVE_ONE
   }
 }
 
