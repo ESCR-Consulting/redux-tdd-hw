@@ -30,21 +30,21 @@ export function incrementIfPrime() {
     const { counter } = getState()
 
     // If counter is less than 2 or not an integer, then it simply can't be a prime number
-    if (counter < 2 ) { return false }
-    if (counter != Math.round(counter) ) { return false }
+    if (counter < 2 ) { return }
+    if (counter != Math.round(counter) ) { return }
 
     // Now let's assume that counter is a prime number, and then prove it
-    var isPrime = true;
+    let isPrime = true;
 
     for (let i = 2; i <= Math.sqrt(counter); i++) {
       if (counter % i == 0) {
         isPrime = false
       }
     }
-
-    // Now we return whether counter is a prime number or not
-    return isPrime;
-    dispatch(increment())
+    // Now we dispatch increment action if counter is a prime number
+    if (isPrime) {
+      dispatch(increment())
+    }
   }
 }
 
