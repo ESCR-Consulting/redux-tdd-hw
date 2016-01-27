@@ -66,6 +66,13 @@ describe('actions', () => {
     done()
   })
 
+  it('incrementIfPrime should create increment action', (done) => {
+    const expectedActions = []
+    const store = mockStore({ counter: 3 }, expectedActions)
+    store.dispatch(actions.incrementIfPrime())
+    done()
+  })
+
   it('incrementAsync should create increment action', (done) => {
     const expectedActions = [
       { type: actions.INCREMENT_COUNTER }
