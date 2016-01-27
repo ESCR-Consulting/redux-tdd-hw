@@ -67,8 +67,17 @@ describe('actions', () => {
   })
 
   it('incrementIfPrime should create increment action', (done) => {
-    const expectedActions = []
+    const expectedActions = [
+      { type: actions.INCREMENT_COUNTER }
+    ]
     const store = mockStore({ counter: 3 }, expectedActions)
+    store.dispatch(actions.incrementIfPrime())
+    done()
+  })
+
+  it('incrementIfPrime shouldnt create increment action if counter is not prime', (done) => {
+    const expectedActions = []
+    const store = mockStore({ counter: 0 }, expectedActions)
     store.dispatch(actions.incrementIfPrime())
     done()
   })
