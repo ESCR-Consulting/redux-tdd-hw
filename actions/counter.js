@@ -44,7 +44,6 @@ export function incrementIfPrime() {
 
     // Now we return whether counter is a prime number or not
     return isPrime;
-    debugger;
     dispatch(increment())
   }
 }

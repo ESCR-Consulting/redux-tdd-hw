@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react'
 class Counter extends Component {
   render() {
     const { increment, incrementIfOdd, incrementIfPrime, incrementAsync, decrement, counter } = this.props
-    console.log(incrementIfPrime);
     return (
       <p>
         Clicked: {counter} times
