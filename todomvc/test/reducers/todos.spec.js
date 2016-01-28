@@ -282,4 +282,8 @@ describe('todos reducer', () => {
       }
     ])
   })
+
+  it('should reverse todo list after REVERSE_LIST', () => {
+    
+  })
 })

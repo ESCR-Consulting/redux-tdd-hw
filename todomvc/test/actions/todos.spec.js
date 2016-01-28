@@ -45,7 +45,7 @@ describe('todo actions', () => {
   })
 
   it('reverseList should create REVERSE_LIST action', () => {
-    expect(actions.clearCompleted()).toEqual({
+    expect(actions.reverseList()).toEqual({
       type: types.REVERSE_LIST
     })
   })
