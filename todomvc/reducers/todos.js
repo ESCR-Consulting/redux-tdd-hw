@@ -9,7 +9,6 @@ const initialState = [
 ]
 
 export default function todos(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -47,7 +46,9 @@ export default function todos(state = initialState, action) {
       }))
 
     case REVERSE_LIST:
-      return state.reverse()
+      return Object(state).sort().reverse().map(todo =>
+        Object.assign({}, todo)
+      )
 
     case CLEAR_COMPLETED:
       return state.filter(todo => todo.completed === false)
