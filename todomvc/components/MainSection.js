@@ -19,6 +19,10 @@ class MainSection extends Component {
     this.props.actions.clearCompleted()
   }
 
+  handleReverseList() {
+    this.props.actions.reverseList()
+  }
+
   handleShow(filter) {
     this.setState({ filter })
   }
@@ -46,6 +50,7 @@ class MainSection extends Component {
                 activeCount={activeCount}
                 filter={filter}
                 onClearCompleted={this.handleClearCompleted.bind(this)}
+                onReverseList={this.handleReverseList.bind(this)}
                 onShow={this.handleShow.bind(this)} />
       )
     }

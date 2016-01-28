@@ -98,5 +98,19 @@ describe('components', () => {
       clear.props.onClick({})
       expect(props.onClearCompleted).toHaveBeenCalled()
     })
+
+    it('should render reverse list', () => {
+      const { output, props } = setup()
+      const [ , , , reverse ] = output.props.children
+      expect(reverse.type).toBe('button')
+      expect(clear.props.children).toBe('Reverse List')
+    })
+
+    it('should call onReverseList on reverse list button click', () => {
+      const { output, props } = setup()
+      const [ , , , reverse ] = output.props.children
+      reverse.props.onClick({})
+      expect(props.onReverseList).toHaveBeenCalled()
+    })
   })
 })
