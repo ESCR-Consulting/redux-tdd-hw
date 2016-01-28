@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED } from '../constants/ActionTypes'
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO, COMPLETE_ALL, CLEAR_COMPLETED, REVERSE_LIST } from '../constants/ActionTypes'
 
 const initialState = [
   {
@@ -9,6 +9,7 @@ const initialState = [
 ]
 
 export default function todos(state = initialState, action) {
+  console.log(action);
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -16,7 +17,7 @@ export default function todos(state = initialState, action) {
           id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
           completed: false,
           text: action.text
-        }, 
+        },
         ...state
       ]
 
@@ -44,6 +45,9 @@ export default function todos(state = initialState, action) {
       return state.map(todo => Object.assign({}, todo, {
         completed: !areAllMarked
       }))
+
+    case REVERSE_LIST:
+      return state.reverse()
 
     case CLEAR_COMPLETED:
       return state.filter(todo => todo.completed === false)

@@ -45,6 +45,16 @@ class Footer extends Component {
     }
   }
 
+  renderReverseListButton() {
+    const { onReverseList } = this.props
+    return (
+      <button className="reverse-list"
+              onClick={onReverseList} >
+        Reverse List
+      </button>
+    )
+  }
+
   render() {
     return (
       <footer className="footer">
@@ -57,6 +67,7 @@ class Footer extends Component {
           )}
         </ul>
         {this.renderClearButton()}
+        {this.renderReverseListButton()}
       </footer>
     )
   }
