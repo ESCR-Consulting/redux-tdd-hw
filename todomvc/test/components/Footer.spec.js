@@ -10,7 +10,8 @@ function setup(propOverrides) {
     activeCount: 0,
     filter: SHOW_ALL,
     onClearCompleted: expect.createSpy(),
-    onShow: expect.createSpy()
+    onShow: expect.createSpy(),
+    onReverseList: expect.createSpy()
   }, propOverrides)
 
   const renderer = TestUtils.createRenderer()
@@ -103,7 +104,7 @@ describe('components', () => {
       const { output, props } = setup()
       const [ , , , reverse ] = output.props.children
       expect(reverse.type).toBe('button')
-      expect(clear.props.children).toBe('Reverse List')
+      expect(reverse.props.children).toBe('Reverse List')
     })
 
     it('should call onReverseList on reverse list button click', () => {
